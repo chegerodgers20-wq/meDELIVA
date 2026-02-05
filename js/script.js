@@ -49,6 +49,22 @@ const products = [
     price: "ksh 2629",
     image: "images/products/CERAVE DAILY MOISTURIZING 473ml-kes 2,629.webp",
   },
+  {
+    name: "Cerave Daily Moisturizing Lotion 236ml",
+    price: "ksh 1982",
+    image:
+      "images/products/Cerave Daily Moisturizing Lotion 236ml-kes 1,982.webp",
+  },
+  {
+    name: "CERAVE FOAM CLEANSER 236ml",
+    price: "ksh 2000",
+    image: "images/products/CERAVE FOAM CLEANSER 236ml-kes 2,000.jpg",
+  },
+  {
+    name: "CERAVE HYDRATING CLEANSER 236ml",
+    price: "ksh 1512",
+    image: "images/products/CERAVE HYDRATING CLEANSER 236ml-kes 1,512.jpg",
+  },
 ];
 
 // Select the grid container

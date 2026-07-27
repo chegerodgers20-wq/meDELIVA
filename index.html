@@ -1,55 +1,530 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>MeDELIVA Pharmacy</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MeDELIVA Pharmacy — Your Trusted Online Pharmacy in Nairobi</title>
+  <meta name="description" content="Quality medicines, supplements, and healthcare products delivered to your doorstep in Nairobi. Fast, reliable, and affordable." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
 
-  <body>
-    <header>
-      <h1>MeDELIVA Pharmacy</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Categories</a>
-        <a href="#">Delivery Info</a>
-        <a href="#">Contact</a>
-      </nav>
-    </header>
-    <section class="hero">
-      <h2>Your Trusted Online Pharmacy</h2>
-      <p>
-        Quality medicines delivered to your doorstep. Fast, reliable, and
-        affordable healthcare solutions.
-      </p>
-      <a href="https://wa.me/+254715270443" class="btn">Order on WhatsApp</a>
-    </section>
+<body>
 
-    <!-- Products Section -->
-    <section id="products">
-      <h2>Our Products</h2>
-      <div id="product-grid" class="product-grid">
-        <!-- Products will be loaded here dynamically -->
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="announcement-bar">
+    🚚 Free delivery on orders above KSh 2,000 &nbsp;|&nbsp;
+    📞 WhatsApp: <a href="https://wa.me/+254715270443">+254 715 270 443</a> &nbsp;|&nbsp;
+    ⏰ Mon–Sat 8AM–8PM
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-icon">💊</div>
+        <div class="logo-text">Me<span>DELIVA</span></div>
       </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p>📞 +254715270443</p>
-      <p>📧Email: <a href="mailto:info@medelivey.com">info@medelivey.com</a></p>
-      <p>📍Location: Nairobi, Kenya</p>
-      <p>Operating Hours: Mon–Sat, 8:00 AM – 8:00 PM</p>
-      <p>WhatsApp: <a href="https://wa.me/+254715270443">Chat with us</a></p>
-    </section>
+      <div class="header-search">
+        <input type="text" id="search-input" placeholder="Search medicines, supplements, devices…" autocomplete="off" />
+        <span class="search-icon">🔍</span>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2026 MeDELIVA Pharmacy. All rights reserved.</p>
-    </footer>
+      <div class="header-actions">
+        <button class="header-btn btn-rx" onclick="openPrescriptionModal()">
+          📋 Upload Prescription
+        </button>
+        <button class="header-btn btn-cart" id="cart-toggle" onclick="openCart()">
+          🛒 Cart
+          <span id="cart-badge">0</span>
+        </button>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+      </div>
+    </div>
 
-    <!-- Link to JS -->
-    <script src="js/script.js"></script>
-  </body>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+      <a href="#hero">🏠 Home</a>
+      <a href="#products">💊 Shop</a>
+      <a href="#categories">🗂️ Categories</a>
+      <a href="#services">🩺 Services</a>
+      <a href="#blog">📰 Health Blog</a>
+      <a href="#contact">📍 Contact</a>
+      <a href="https://wa.me/+254715270443" target="_blank">💬 WhatsApp Order</a>
+    </div>
+
+    <!-- Desktop Nav Bar -->
+    <nav class="nav-bar">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-link active">🏠 Home</a>
+        <a href="#products" class="nav-link">💊 Shop All</a>
+        <a href="#categories" class="nav-link">🗂️ Categories</a>
+        <a href="#services" class="nav-link">🩺 Services</a>
+        <a href="#blog" class="nav-link">📰 Health Blog</a>
+        <a href="#contact" class="nav-link">📍 Contact</a>
+        <a href="https://wa.me/+254715270443" target="_blank" class="nav-link nav-whatsapp">💬 Order on WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <div class="hero-badge">🌿 Nairobi's Trusted Pharmacy</div>
+        <h1>
+          Healthcare <span class="accent">Delivered</span><br/>
+          to Your Door
+        </h1>
+        <p>
+          Quality medicines, supplements, and health products — ordered online,
+          delivered fast across Nairobi. Verified products, real pharmacists.
+        </p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn-primary">🛒 Shop Now</a>
+          <button class="btn-secondary" onclick="openPrescriptionModal()">📋 Upload Prescription</button>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span>✅</span><span>Verified Products</span></div>
+          <div class="trust-item"><span>⚡</span><span>Same-Day Delivery</span></div>
+          <div class="trust-item"><span>🔒</span><span>Secure Checkout</span></div>
+          <div class="trust-item"><span>💬</span><span>Pharmacist Support</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-icon icon-green">💊</div>
+          <div class="hero-card-text">
+            <strong>Fast Delivery</strong>
+            <span>Same day across Nairobi</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon icon-blue">🩺</div>
+          <div class="hero-card-text">
+            <strong>Pharmacist on Call</strong>
+            <span>Free consultation via WhatsApp</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon icon-green">🌿</div>
+          <div class="hero-card-text">
+            <strong>500+ Products</strong>
+            <span>Medicines, supplements & more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num" data-target="5000" data-suffix="+">0+</span>
+        <span class="stat-label">Happy Customers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="500" data-suffix="+">0+</span>
+        <span class="stat-label">Products Available</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="99" data-suffix="%">0%</span>
+        <span class="stat-label">Verified Medicines</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2" data-suffix="hr">0hr</span>
+        <span class="stat-label">Avg. Delivery Time</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="categories-section reveal" id="categories">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center">Shop by Category</h2>
+      <p class="section-subtitle" style="text-align:center">Everything you need for your health, in one place</p>
+
+      <div class="categories-grid">
+        <button class="cat-btn active" data-cat="all">
+          <span class="cat-icon">🏪</span>
+          <span class="cat-name">All Products</span>
+          <span class="cat-count">20+ items</span>
+        </button>
+        <button class="cat-btn" data-cat="medicines">
+          <span class="cat-icon">💊</span>
+          <span class="cat-name">Medicines</span>
+          <span class="cat-count">4+ items</span>
+        </button>
+        <button class="cat-btn" data-cat="supplements">
+          <span class="cat-icon">🧴</span>
+          <span class="cat-name">Supplements</span>
+          <span class="cat-count">4+ items</span>
+        </button>
+        <button class="cat-btn" data-cat="personal-care">
+          <span class="cat-icon">🧼</span>
+          <span class="cat-name">Personal Care</span>
+          <span class="cat-count">4+ items</span>
+        </button>
+        <button class="cat-btn" data-cat="baby">
+          <span class="cat-icon">👶</span>
+          <span class="cat-name">Baby Products</span>
+          <span class="cat-count">3+ items</span>
+        </button>
+        <button class="cat-btn" data-cat="devices">
+          <span class="cat-icon">🩺</span>
+          <span class="cat-name">Medical Devices</span>
+          <span class="cat-count">3+ items</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products-section reveal" id="products">
+    <div class="products-header">
+      <div>
+        <h2 class="section-title">Our Products</h2>
+        <p class="section-subtitle" style="margin-bottom:0">Quality-verified. Competitively priced.</p>
+      </div>
+      <div class="products-filters">
+        <button class="filter-chip active">All</button>
+        <button class="filter-chip">On Sale</button>
+        <button class="filter-chip">Best Sellers</button>
+        <button class="filter-chip">New Arrivals</button>
+      </div>
+    </div>
+    <div id="product-grid" class="product-grid">
+      <!-- Products loaded dynamically by script.js -->
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services-section reveal" id="services">
+    <div class="services-inner">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">More than a pharmacy — your complete health partner</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon green">📋</div>
+          <h3>Prescription Upload</h3>
+          <p>Upload your prescription and our licensed pharmacists will dispense your medication accurately and safely, with home delivery.</p>
+          <button class="service-link" onclick="openPrescriptionModal()">Upload Prescription →</button>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon blue">💬</div>
+          <h3>Pharmacist Consultation</h3>
+          <p>Chat directly with our qualified pharmacists on WhatsApp for dosage guidance, drug interactions, and medication advice — free of charge.</p>
+          <a class="service-link" href="https://wa.me/+254715270443?text=Hi%2C%20I%20need%20a%20pharmacist%20consultation" target="_blank">Chat with Pharmacist →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon purple">🚚</div>
+          <h3>Fast Home Delivery</h3>
+          <p>We deliver across Nairobi within 2–4 hours. Same-day delivery available for orders placed before 5PM. Free delivery on orders over KSh 2,000.</p>
+          <a class="service-link" href="#contact">Check Delivery Area →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon green">📅</div>
+          <h3>Prescription Refills</h3>
+          <p>Set up automatic monthly refills for chronic medications. Never run out of your essential medicines again.</p>
+          <a class="service-link" href="https://wa.me/+254715270443?text=Hi%2C%20I%20want%20to%20set%20up%20a%20prescription%20refill" target="_blank">Set Up Refill →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon blue">❤️</div>
+          <h3>Health Checks</h3>
+          <p>Basic health monitoring including blood pressure, blood sugar, and BMI checks. Available in-store or request a home visit.</p>
+          <a class="service-link" href="#contact">Book Health Check →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon purple">🌙</div>
+          <h3>After-Hours Support</h3>
+          <p>Health emergencies don't keep business hours. WhatsApp us any time for urgent medication needs and we'll do our best to help.</p>
+          <a class="service-link" href="https://wa.me/+254715270443?text=Hi%2C%20I%20have%20an%20urgent%20medication%20need" target="_blank">Contact Us Now →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section class="blog-section reveal" id="blog">
+    <div class="blog-inner">
+      <h2 class="section-title">Health Tips & Articles</h2>
+      <p class="section-subtitle">Expert advice from our pharmacists and health professionals</p>
+      <div class="blog-grid">
+
+        <div class="blog-card">
+          <div class="blog-thumb">💊</div>
+          <div class="blog-content">
+            <span class="blog-tag">Medication</span>
+            <h3>How to Store Your Medicines Safely at Home</h3>
+            <p>Proper storage extends shelf life and maintains effectiveness. Learn the dos and don'ts of home medication storage.</p>
+            <div class="blog-meta">
+              <span>📅 June 2026</span>
+              <span>⏱ 3 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-thumb">🌿</div>
+          <div class="blog-content">
+            <span class="blog-tag">Wellness</span>
+            <h3>5 Daily Supplements Every Kenyan Should Consider</h3>
+            <p>From Vitamin D to Omega-3, discover which supplements can bridge nutritional gaps in the typical Kenyan diet.</p>
+            <div class="blog-meta">
+              <span>📅 May 2026</span>
+              <span>⏱ 5 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-thumb">🩺</div>
+          <div class="blog-content">
+            <span class="blog-tag">Health Checks</span>
+            <h3>Understanding Your Blood Pressure Readings</h3>
+            <p>What do those numbers really mean? Our pharmacist breaks down hypertension, normal ranges, and when to seek help.</p>
+            <div class="blog-meta">
+              <span>📅 May 2026</span>
+              <span>⏱ 4 min read</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section reveal" id="contact">
+    <div class="contact-inner container">
+      <div class="contact-info">
+        <h2 class="section-title">Get in Touch</h2>
+        <p>We're here to help with all your healthcare needs. Reach us through any of the channels below.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              <span><a href="tel:+254715270443">+254 715 270 443</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <strong>Email</strong>
+              <span><a href="mailto:info@medelivey.com">info@medelivey.com</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <span>Nairobi, Kenya — Delivery across Nairobi</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">⏰</div>
+            <div>
+              <strong>Operating Hours</strong>
+              <span>Monday – Saturday, 8:00 AM – 8:00 PM</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">💬</div>
+            <div>
+              <strong>WhatsApp Orders</strong>
+              <span><a href="https://wa.me/+254715270443" target="_blank">Chat with us anytime</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contact-form" onsubmit="handleContactForm(event)">
+          <div class="form-group">
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Phone Number</label>
+            <input type="tel" id="cf-phone" placeholder="+254 7XX XXX XXX" required />
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Subject</label>
+            <select id="cf-subject">
+              <option>Product Inquiry</option>
+              <option>Prescription Refill</option>
+              <option>Delivery Issue</option>
+              <option>Pharmacist Consultation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; border-radius:8px;">
+            💬 Send via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <div class="logo-wrap" style="margin-bottom:12px">
+          <div class="logo-icon">💊</div>
+          <div class="logo-text" style="color:white">Me<span>DELIVA</span></div>
+        </div>
+        <p>Your trusted online pharmacy in Nairobi. Quality medicines, fast delivery, and professional pharmacist support — all in one place.</p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://wa.me/+254715270443" target="_blank" title="WhatsApp">💬</a>
+          <a class="social-btn" href="mailto:info@medelivey.com" title="Email">✉️</a>
+          <a class="social-btn" href="tel:+254715270443" title="Call">📞</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Shop All</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#blog">Health Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#" onclick="filterCategory('medicines');return false;">Medicines</a></li>
+          <li><a href="#" onclick="filterCategory('supplements');return false;">Supplements</a></li>
+          <li><a href="#" onclick="filterCategory('personal-care');return false;">Personal Care</a></li>
+          <li><a href="#" onclick="filterCategory('baby');return false;">Baby Products</a></li>
+          <li><a href="#" onclick="filterCategory('devices');return false;">Medical Devices</a></li>
+          <li><a href="#" onclick="filterCategory('wellness');return false;">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="openPrescriptionModal();return false;">Upload Prescription</a></li>
+          <li><a href="https://wa.me/+254715270443" target="_blank">Pharmacist Chat</a></li>
+          <li><a href="#services">Home Delivery</a></li>
+          <li><a href="#services">Prescription Refills</a></li>
+          <li><a href="#services">Health Checks</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <span>© 2026 MeDELIVA Pharmacy. All rights reserved. | Nairobi, Kenya</span>
+      <div class="footer-badges">
+        <span class="footer-badge">✅ Licensed</span>
+        <span class="footer-badge">🔒 Secure</span>
+        <span class="footer-badge">💊 Verified Products</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div id="cart-overlay"></div>
+  <div id="cart-drawer">
+    <div class="cart-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="cart-close" onclick="closeCart()">✕</button>
+    </div>
+    <div id="cart-items">
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <p class="cart-empty-sub">Add some products to get started</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cart-total">KSh 0</span>
+      </div>
+      <button class="btn-checkout" onclick="proceedToCheckout()">
+        💬 Order via WhatsApp
+      </button>
+      <p class="cart-note">Your order will be sent to our WhatsApp for confirmation & payment</p>
+    </div>
+  </div>
+
+  <!-- ===== PRESCRIPTION MODAL ===== -->
+  <div id="rx-modal">
+    <div class="rx-modal-box">
+      <div class="rx-modal-header">
+        <h3>📋 Upload Prescription</h3>
+        <button class="cart-close" onclick="closePrescriptionModal()">✕</button>
+      </div>
+      <form id="rx-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+254 7XX XXX XXX" required />
+        </div>
+        <div class="form-group">
+          <label>Delivery Address</label>
+          <input type="text" placeholder="Area, street, landmark…" required />
+        </div>
+        <div class="rx-upload-area" onclick="document.getElementById('rx-file').click()">
+          <div class="rx-upload-icon">📄</div>
+          <strong>Tap to upload your prescription</strong>
+          <p>Photo or scan — JPG, PNG, or PDF accepted</p>
+          <input type="file" id="rx-file" accept="image/*,.pdf" style="display:none" />
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea placeholder="Any special instructions for the pharmacist…"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; border-radius:8px;">
+          📤 Submit Prescription
+        </button>
+        <p style="font-size:0.78rem;color:#64748b;text-align:center;margin-top:12px">
+          Our pharmacist will review and contact you within 30 minutes.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+
+  <script>
+    // Contact form handler
+    function handleContactForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value;
+      const phone = document.getElementById('cf-phone').value;
+      const subject = document.getElementById('cf-subject').value;
+      const msg = document.getElementById('cf-msg').value;
+      const text = `Hi MeDELIVA!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ASubject: ${encodeURIComponent(subject)}%0A%0A${encodeURIComponent(msg)}`;
+      window.open(`https://wa.me/+254715270443?text=${text}`, '_blank');
+    }
+  </script>
+
+</body>
 </html>

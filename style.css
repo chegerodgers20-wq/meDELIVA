@@ -141,17 +141,17 @@ h5 {
   gap: 10px;
   flex-shrink: 0;
 }
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--green), var(--blue));
-  border-radius: 10px;
+.logo-wrap {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: white;
+  flex-shrink: 0;
 }
+
+.logo-icon {
+  height: 50px; /* adjust to match your exact logo size */
+  width: auto;
+}
+
 .logo-text {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 800;
